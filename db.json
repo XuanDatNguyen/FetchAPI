@@ -1,0 +1,34 @@
+{
+  "course": [
+    {
+      "id": 1,
+      "name": "Kiến thức cơ bản",
+      "description": "Dành cho người mới"
+    },
+    {
+      "name": "kiến thức nâng cao",
+      "description": "Dành cho người đã học cơ bản",
+      "id": 3
+    },
+    {
+      "name": "test 1",
+      "description": "test 2",
+      "id": 4
+    },
+    {
+      "name": "demo 1",
+      "description": "asada",
+      "id": 5
+    },
+    {
+      "name": "Áo khoác",
+      "description": "sdfá",
+      "id": 6
+    },
+    {
+      "name": "Super admin",
+      "description": "SDD",
+      "id": 7
+    }
+  ]
+}
