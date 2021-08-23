@@ -30,13 +30,45 @@ function createCourses(data, callback) {
         .then(callback)
 }
 
+function handleDeleteCourses(id) {
+    fetch(courseAPI + '/' + id, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+          },
+    })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function() {
+            var deleteItem = document.querySelector('.course-item-' + id);
+            deleteItem.remove();
+        })
+}
+
+function updateCourses(id, data, callback) {
+    fetch(courseAPI + '/' + id, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+    })
+        .then(function(response) {
+            return response.json();
+        })
+        .then(callback)
+}
+
 function renderCourses(courses) {
     var listCourseBlock = document.querySelector('#list-courses');
     var htmls = courses.map(function(course) {
         return `
-            <li>
+            <li class="course-item-${course.id}">
                 <h1>${course.name}</h1>
                 <p>${course.description}</p>
+                <button onclick="handleDeleteCourses(${course.id})">Xóa</button>
+                <button onclick="handleUpdateCourses(${course.id})">Sửa</button>
             </li>
         `;
     })
@@ -53,7 +85,45 @@ function handleCreateForm() {
             name: name,
             description: description
         }
-        createCourses(formData);
+        createCourses(formData, function() {
+            getCourses(renderCourses);
+        });
     }    
 }
+
+function handleUpdateCourses(id) {
+    var courseItem = document.querySelector(".course-item-" + id);
+    var getName = courseItem.querySelector("h1").innerText;
+    var getDescription = courseItem.querySelector("p").innerText;
+
+
+    var newName = document.querySelector('input[name="name"]').value;
+    var newDescription = document.querySelector('input[name="description"]').value;
+
+    newDescription = getDescription;
+    newName = getName;
+
+    if(!document.querySelector("#update")) {
+        document.querySelector("#create").id = "update";
+    }
+    document.querySelector("#update").innerText = "Lưu"
+
+    var updateBtn = document.querySelector("#update");
+
+    updateBtn.onclick = function() {
+        var formData = {
+            name: newName.value,
+            description: newDescription.value
+        }
+
+
+
+        console.log(formData)
+
+        updateCourses(id, formData, function() {
+            getCourses(renderCourses);
+        });
+    }
+}
+
 

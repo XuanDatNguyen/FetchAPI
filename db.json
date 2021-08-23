@@ -1,34 +1,29 @@
 {
   "course": [
     {
-      "id": 1,
-      "name": "Kiến thức cơ bản",
-      "description": "Dành cho người mới"
+      "name": "Khóa học 1",
+      "description": "Mô tả khóa học 1",
+      "id": 1
     },
     {
-      "name": "kiến thức nâng cao",
-      "description": "Dành cho người đã học cơ bản",
+      "name": "Khóa học 3",
+      "description": "Mô tả khóa học 3",
       "id": 3
     },
     {
-      "name": "test 1",
-      "description": "test 2",
+      "name": "Khóa học 2",
+      "description": "Mô tả khóa học 2",
       "id": 4
     },
     {
-      "name": "demo 1",
-      "description": "asada",
+      "name": "Khóa học 3",
+      "description": "Mô tả khóa học 3",
       "id": 5
     },
     {
-      "name": "Áo khoác",
-      "description": "sdfá",
+      "name": "Khóa học 4",
+      "description": "Mô tả khóa học 4",
       "id": 6
-    },
-    {
-      "name": "Super admin",
-      "description": "SDD",
-      "id": 7
     }
   ]
 }
