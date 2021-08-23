@@ -97,11 +97,14 @@ function handleUpdateCourses(id) {
     var getDescription = courseItem.querySelector("p").innerText;
 
 
-    var newName = document.querySelector('input[name="name"]').value;
-    var newDescription = document.querySelector('input[name="description"]').value;
 
-    newDescription = getDescription;
-    newName = getName;
+    var newName = document.querySelector('input[name="name"]');
+    var newDescription = document.querySelector('input[name="description"]');
+
+    newDescription.value = getDescription;
+    newName.value = getName;
+    console.log(newName, newDescription)
+    
 
     if(!document.querySelector("#update")) {
         document.querySelector("#create").id = "update";
@@ -116,9 +119,6 @@ function handleUpdateCourses(id) {
             description: newDescription.value
         }
 
-
-
-        console.log(formData)
 
         updateCourses(id, formData, function() {
             getCourses(renderCourses);
